@@ -3,7 +3,8 @@
 <h1 align="center" style="margin-top: 0px;">log</h1>
 
 <p align="center">
-<a href="https://github.com/space-code/log/blob/main/LICENSE"><img alt="License" src="https://img.shields.io/github/license/space-code/log?style=flat"></a> 
+<a href="https://github.com/space-code/log/blob/main/LICENSE"><img alt="License" src="https://img.shields.io/github/license/space-code/log?style=flat"></a>
+<a href="https://developer.apple.com/"><img alt="Platform" src="https://img.shields.io/badge/platform-ios%20%7C%20osx%20%7C%20watchos%20%7C%20tvos%20%7C%20visionos-%23989898"/></a> 
 <a href="https://developer.apple.com/swift"><img alt="5.7" src="https://img.shields.io/badge/language-Swift5.7-orange.svg"/></a>
 <a href="https://github.com/space-code/log"><img alt="CI" src="https://github.com/space-code/Log/actions/workflows/ci.yml/badge.svg?branch=main"></a>
 <a href="https://github.com/apple/swift-package-manager" alt="log on Swift Package Manager" title="log on Swift Package Manager"><img src="https://img.shields.io/badge/Swift%20Package%20Manager-compatible-brightgreen.svg" /></a>

@@ -25,7 +25,5 @@ jobs:
           bundle install --clean --path vendor/bundle
       - name: danger
         env:
-          
           DANGER_GITHUB_API_TOKEN: ${{ secrets.DANGER_GITHUB_API_TOKEN }}
-          
         run: bundle exec danger --verbose

@@ -1,3 +1,5 @@
+![Log: A lightweight logging framework written in Swift](https://raw.githubusercontent.com/space-code/log/dev/Resources/log.png)
+
 <h1 align="center" style="margin-top: 0px;">log</h1>
 
 <p align="center">
@@ -8,7 +10,7 @@
 </p>
 
 ## Description
-`Log` description.
+`Log` is a lightweight logging framework written in Swift.
 
 - [Usage](#usage)
 - [Requirements](#requirements)
@@ -20,7 +22,61 @@
 
 ## Usage
 
+### Create a logger instance
+
+First, you need to create an instance of `IPrinter` that prints messages to a specific output, such as XCode's console or the `Console` app.
+The `log` package provides predefined printers for printing messages in the XCode console (`ConsolePrinter`) and the system console (`OSPrinter`). You can also create your own printer. To do this, your object must conform to `IPrinterStrategy` and implement the necessary methods.
+
+```swift
+import Log
+
+let osPrinter = OSPrinter()
+let consolePrinter = ConsolePrinter()
+```
+
+Second, create a `Logger` instance and pass these printers as initialization parameters while defining a log level. The log level determines the level of log messages to print. If the log level is set to a specific level, all messages with different log levels will be ignored. To print all messages, use `.all`.
+
+```swift
+let log = Logger(
+    printers: [osPrinter, consolePrinter],
+    logLevel: .all
+)
+log.error(message: "test message")
+```
+
+### Formatting a message
+
+Each instance of `IPrinter` has an array of formatters that are responsible for formatting input messages. The `log` package provides predefined prefix and timestamp formatters. To use these, you need to pass them to an initializer of a printer.
+
+```swift
+let osPrinter = OSPrinter(formatters: [PrefixFormatter(name: "your prefix here")])
+...
+log.fault(message: "message") // "🚨🚨🚨 [your prefix here] => message"
+```
+
+Here is a list of predefined formatters:
+
+| **Formatters**             | **Description**                                                                     |
+|----------------------------|-------------------------------------------------------------------------------------|
+| **PrefixLogFormatter**     | Add a specified prefix to a printed message                                         |
+| **TimestampLogFormatter**  | Add a timestamp before a printed message based on a date format                     |
+
+### Custom formatters
+
+If you want to create a custom message formatter, your object must conform to the `ILogFormatter` protocol and implement the necessary methods.
+
+```swift
+struct MyCustomMessageFormatter: ILogFormatter {
+    func format(message: String, with logLevel: LogLevel) -> String {
+        // your implementation here
+    }
+}
+```
+
 ## Requirements
+- iOS 13.0+ / macOS 10.15+ / tvOS 13.0+ / watchOS 7.0+ / visionOS 1.0+
+- Xcode 14.0
+- Swift 5.7
 
 ## Installation
 ### Swift Package Manager

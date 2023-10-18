@@ -4,7 +4,7 @@
 
 # Use 'swiftformat --options' to list all of the possible options
 
---header "\nLog\nCopyright © {created.year} Space Code. All rights reserved.\n//"
+--header "\nlog\nCopyright © {created.year} Space Code. All rights reserved.\n//"
 
 --enable blankLinesBetweenScopes
 --enable blankLinesAtStartOfScope
@@ -36,8 +36,8 @@
 --enable redundantSelf
 --enable redundantVoidReturnType
 --enable semicolons
---enable sortedImports
---enable sortedSwitchCases
+--enable sortImports
+--enable sortSwitchCases
 --enable spaceAroundBraces
 --enable spaceAroundBrackets
 --enable spaceAroundComments

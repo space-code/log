@@ -1,5 +1,6 @@
-// swift-tools-version: 5.9
+// swift-tools-version: 5.7
 // The swift-tools-version declares the minimum version of Swift required to build this package.
+// swiftlint:disable all
 
 import PackageDescription
 
@@ -10,7 +11,6 @@ let package = Package(
         .iOS(.v13),
         .watchOS(.v7),
         .tvOS(.v13),
-        .visionOS(.v1),
     ],
     products: [
         .library(name: "Log", targets: ["Log"]),
@@ -21,3 +21,4 @@ let package = Package(
         .testTarget(name: "LogTests", dependencies: ["Log"]),
     ]
 )
+// swiftlint:enable all

@@ -1,6 +1,11 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [Unreleased]
+#### Added
+- Update GitHub Actions workflow
+  - Added in Pull Request [#3](https://github.com/space-code/log/pull/3).
+
 #### 1.x Releases
 - `1.0.x` Releases - [1.0.0](#100)
 

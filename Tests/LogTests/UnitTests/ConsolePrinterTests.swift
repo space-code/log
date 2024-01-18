@@ -1,9 +1,9 @@
 //
 // log
-// Copyright © 2023 Space Code. All rights reserved.
+// Copyright © 2024 Space Code. All rights reserved.
 //
 
-import Log
+@testable import Log
 import XCTest
 
 // MARK: - ConsolePrinterTests

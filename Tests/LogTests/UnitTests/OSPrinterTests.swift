@@ -1,9 +1,9 @@
 //
 // log
-// Copyright © 2023 Space Code. All rights reserved.
+// Copyright © 2024 Space Code. All rights reserved.
 //
 
-import Log
+@testable import Log
 import XCTest
 
 // MARK: - OSPrinterTests
@@ -23,8 +23,6 @@ final class OSPrinterTests: XCTestCase {
         formatterMock = LogFormatterMock()
         osWriterMock = OSWriterMock()
         sut = OSPrinter(
-            subsystem: .subsystem,
-            category: .category,
             formatters: [formatterMock],
             osWriter: osWriterMock
         )
@@ -47,7 +45,7 @@ final class OSPrinterTests: XCTestCase {
         sut.log(.message, logLevel: .all)
 
         // then
-        XCTAssertEqual((osWriterMock.invokedLogParameters?.args as? [String])?.first, .message)
+        XCTAssertEqual(osWriterMock.invokedLogParameters?.message, .message)
     }
 
     func test_thatConsolePrinterLogsMessage_whenLogLevelIsDebug() {
@@ -58,7 +56,7 @@ final class OSPrinterTests: XCTestCase {
         sut.log(.message, logLevel: .debug)
 
         // then
-        XCTAssertEqual((osWriterMock.invokedLogParameters?.args as? [String])?.first, .message)
+        XCTAssertEqual(osWriterMock.invokedLogParameters?.message, .message)
     }
 
     func test_thatConsolePrinterLogsMessage_whenLogLevelIsInfo() {
@@ -69,7 +67,7 @@ final class OSPrinterTests: XCTestCase {
         sut.log(.message, logLevel: .info)
 
         // then
-        XCTAssertEqual((osWriterMock.invokedLogParameters?.args as? [String])?.first, .message)
+        XCTAssertEqual(osWriterMock.invokedLogParameters?.message, .message)
     }
 
     func test_thatConsolePrinterLogsMessage_whenLogLevelIsError() {
@@ -80,7 +78,7 @@ final class OSPrinterTests: XCTestCase {
         sut.log(.message, logLevel: .error)
 
         // then
-        XCTAssertEqual((osWriterMock.invokedLogParameters?.args as? [String])?.first, .message)
+        XCTAssertEqual(osWriterMock.invokedLogParameters?.message, .message)
     }
 
     func test_thatConsolePrinterLogsMessage_whenLogLevelIsFault() {
@@ -91,7 +89,7 @@ final class OSPrinterTests: XCTestCase {
         sut.log(.message, logLevel: .fault)
 
         // then
-        XCTAssertEqual((osWriterMock.invokedLogParameters?.args as? [String])?.first, .message)
+        XCTAssertEqual(osWriterMock.invokedLogParameters?.message, .message)
     }
 }
 

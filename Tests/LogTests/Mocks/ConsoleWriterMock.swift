@@ -1,10 +1,10 @@
 //
 // log
-// Copyright © 2023 Space Code. All rights reserved.
+// Copyright © 2024 Space Code. All rights reserved.
 //
 
 import Foundation
-import Log
+@testable import Log
 
 final class ConsoleWriterMock: IConsoleWriter {
     var invokedPrint = false

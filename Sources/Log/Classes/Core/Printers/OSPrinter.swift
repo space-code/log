@@ -1,6 +1,6 @@
 //
 // log
-// Copyright © 2023 Space Code. All rights reserved.
+// Copyright © 2024 Space Code. All rights reserved.
 //
 
 import Foundation
@@ -14,15 +14,9 @@ public final class OSPrinter {
 
     /// An array of log formatters used to customize log message output.
     public let formatters: [ILogFormatter]
-    /// The optional subsystem for categorizing log messages.
-    public let subsystem: String
-    /// The optional category for categorizing log messages.
-    public let category: String
-    /// The os writer.
-    public let osWriter: IOSWriter
 
-    /// An internal lazy property for initializing the OSLog instance.
-    private lazy var osLog: OSLog = .init(subsystem: subsystem, category: category)
+    /// An os writer.
+    private let osWriter: IOSWriter
 
     // MARK: Initialization
 
@@ -32,15 +26,24 @@ public final class OSPrinter {
     ///   - subsystem: An optional subsystem for categorizing log messages.
     ///   - category: An optional category for categorizing log messages.
     ///   - formatters: An array of log formatters for customizing log messages.
-    ///   - osWriter: An os writer.
     public init(
-        subsystem: String = "os_printer",
-        category: String = "",
-        formatters: [ILogFormatter],
-        osWriter: IOSWriter = OSWriter()
+        subsystem: String,
+        category: String,
+        formatters: [ILogFormatter]
     ) {
-        self.subsystem = subsystem
-        self.category = category
+        self.formatters = formatters
+        osWriter = OSWriter(
+            subsystem: subsystem,
+            category: category
+        )
+    }
+
+    /// Creates a new `OSPrinter` instance.
+    ///
+    /// - Parameters:
+    ///   - formatters: An array of log formatters for customizing log messages.
+    ///   - osWriter: An os writer.
+    init(formatters: [ILogFormatter], osWriter: IOSWriter) {
         self.formatters = formatters
         self.osWriter = osWriter
     }
@@ -52,7 +55,7 @@ extension OSPrinter: IStyleLogStrategy {
     public func log(_ message: String, logLevel: LogLevel) {
         let message = formatMessage(message, logLevel: logLevel)
         let type = sysLogPriority(logLevel)
-        osWriter.log("%s", log: osLog, type: type, message)
+        osWriter.log(type: type, message)
     }
 }
 

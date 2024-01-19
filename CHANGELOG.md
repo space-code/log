@@ -5,6 +5,8 @@ All notable changes to this project will be documented in this file.
 #### Added
 - Update GitHub Actions workflow
   - Added in Pull Request [#3](https://github.com/space-code/log/pull/3).
+- Hide `IOSWriter` & `IConsoleWriter` from the public interface
+  - Added in Pull Request [#2](https://github.com/space-code/log/pull/2).
 
 #### 1.x Releases
 - `1.0.x` Releases - [1.0.0](#100)

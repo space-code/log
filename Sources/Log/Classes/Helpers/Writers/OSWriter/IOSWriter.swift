@@ -1,6 +1,6 @@
 //
 // log
-// Copyright © 2023 Space Code. All rights reserved.
+// Copyright © 2024 Space Code. All rights reserved.
 //
 
 import Foundation
@@ -11,9 +11,7 @@ public protocol IOSWriter {
     /// Writes a log message to the specified OSLog.
     ///
     /// - Parameters:
-    ///   - message: A StaticString containing the log message format.
-    ///   - log: An OSLog object representing the log subsystem and category.
     ///   - type: An OSLogType indicating the log message type.
-    ///   - args: A variadic list of CVarArg values to fill in the message format.
-    func log(_ message: StaticString, log: OSLog, type: OSLogType, _ args: CVarArg...)
+    ///   - message: A variadic list of String values to fill in the message format.
+    func log(type: OSLogType, _ message: String)
 }

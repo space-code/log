@@ -4,11 +4,13 @@
 
 <p align="center">
 <a href="https://github.com/space-code/log/blob/main/LICENSE"><img alt="License" src="https://img.shields.io/github/license/space-code/log?style=flat"></a>
-<a href="https://developer.apple.com/"><img alt="Platform" src="https://img.shields.io/badge/platform-ios%20%7C%20osx%20%7C%20watchos%20%7C%20tvos%20%7C%20visionos-%23989898"/></a> 
-<a href="https://developer.apple.com/swift"><img alt="5.7" src="https://img.shields.io/badge/language-Swift5.7-orange.svg"/></a>
+<a href="https://swiftpackageindex.com/space-code/log"><img alt="Swift Compatibility" src="https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Fspace-code%2Flog%2Fbadge%3Ftype%3Dswift-versions"/></a> 
+<a href="https://swiftpackageindex.com/space-code/log"><img alt="Platform Compatibility" src="https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Fspace-code%2Flog%2Fbadge%3Ftype%3Dplatforms"/></a> 
 <a href="https://github.com/space-code/log"><img alt="CI" src="https://github.com/space-code/Log/actions/workflows/ci.yml/badge.svg?branch=main"></a>
 <a href="https://github.com/apple/swift-package-manager" alt="log on Swift Package Manager" title="log on Swift Package Manager"><img src="https://img.shields.io/badge/Swift%20Package%20Manager-compatible-brightgreen.svg" /></a>
 <a href="https://codecov.io/gh/space-code/log"><img alt="CodeCov" src="https://codecov.io/gh/space-code/log/graph/badge.svg?token=h5C53DgBKN"></a>
+<a href="https://github.com/space-code/log"><img alt="GitHub release; latest by date" src="https://img.shields.io/github/v/release/space-code/log"></a>
+<a href="https://github.com/space-code/log"><img alt="GitHub commit activity" src="https://img.shields.io/github/commit-activity/m/space-code/log"></a>
 </p>
 
 ## Description

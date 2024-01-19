@@ -3,6 +3,8 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 #### Added
+- Make the `logLevel` property changeable
+   - Added in Pull Request [#5](https://github.com/space-code/log/pull/5).
 - Add files to comply with community standards
    - Added in Pull Request [#4](https://github.com/space-code/log/pull/4).
 - Update GitHub Actions workflow

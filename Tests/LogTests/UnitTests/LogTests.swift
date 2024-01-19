@@ -1,6 +1,6 @@
 //
 // log
-// Copyright © 2023 Space Code. All rights reserved.
+// Copyright © 2024 Space Code. All rights reserved.
 //
 
 import Log
@@ -117,6 +117,21 @@ final class LogTests: XCTestCase {
 
         // then
         XCTAssertNil(printerMock.invokedLogParameters?.message)
+    }
+
+    func test_thatLoggerDoesNotPrintAnything_whenLogLevelValueDidChange() {
+        // given
+        let sut = prepareSut()
+
+        // when
+        sut.logLevel = .info
+        sut.debug(message: .message)
+        sut.info(message: .message)
+
+        // then
+        XCTAssertEqual(sut.logLevel, .info)
+        XCTAssertEqual(printerMock.invokedLogCount, 1)
+        XCTAssertEqual(printerMock.invokedLogParameters?.message, .message)
     }
 
     // MARK: Private

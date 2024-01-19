@@ -1,7 +1,9 @@
 //
 // log
-// Copyright © 2023 Space Code. All rights reserved.
+// Copyright © 2024 Space Code. All rights reserved.
 //
+
+import Foundation
 
 // MARK: - Logger
 
@@ -10,7 +12,14 @@ open class Logger {
     // MARK: Properties
 
     /// The current log level for this logger.
-    let logLevel: LogLevel
+    private var _logLevel: Atomic<LogLevel>
+
+    /// The current log level for this logger.
+    public var logLevel: LogLevel {
+        get { _logLevel.value }
+        set { _logLevel.value = newValue }
+    }
+
     /// An array of printer strategies to handle the log output.
     let printers: [IPrinterStrategy]
 
@@ -26,7 +35,7 @@ open class Logger {
         logLevel: LogLevel
     ) {
         self.printers = printers
-        self.logLevel = logLevel
+        _logLevel = Atomic(value: logLevel)
     }
 
     // MARK: Private
@@ -41,7 +50,7 @@ open class Logger {
         printers.forEach { $0.log(message, logLevel: logLevel) }
     }
 
-    /// Checks if the given `LogLevel` is allowed by the reciever.
+    /// Checks if the given `LogLevel` is allowed by the receiver.
     ///
     /// - Parameter logLevel: The log level to check.
     private func isLoggerEnabled(for logLevel: LogLevel) -> Bool {

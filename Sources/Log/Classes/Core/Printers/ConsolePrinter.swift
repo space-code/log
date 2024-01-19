@@ -1,6 +1,6 @@
 //
 // log
-// Copyright © 2023 Space Code. All rights reserved.
+// Copyright © 2024 Space Code. All rights reserved.
 //
 
 import Foundation
@@ -15,7 +15,7 @@ public final class ConsolePrinter {
     public let formatters: [ILogFormatter]
 
     /// The console writer.
-    public let consoleWriter: IConsoleWriter
+    private let consoleWriter: IConsoleWriter
 
     // MARK: Initialization
 
@@ -23,8 +23,17 @@ public final class ConsolePrinter {
     ///
     /// - Parameters:
     ///   - formatters: An array of log formatters for customizing log messages.
+    public init(formatters: [ILogFormatter]) {
+        self.formatters = formatters
+        consoleWriter = ConsoleWriter()
+    }
+
+    /// Creates a new `ConsolePrinter` instance.
+    ///
+    /// - Parameters:
+    ///   - formatters: An array of log formatters for customizing log messages.
     ///   - consoleWriter: The console writer.
-    public init(formatters: [ILogFormatter], consoleWriter: IConsoleWriter = ConsoleWriter()) {
+    init(formatters: [ILogFormatter], consoleWriter: IConsoleWriter) {
         self.formatters = formatters
         self.consoleWriter = consoleWriter
     }

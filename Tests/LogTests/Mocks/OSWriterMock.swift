@@ -1,21 +1,21 @@
 //
 // log
-// Copyright © 2023 Space Code. All rights reserved.
+// Copyright © 2024 Space Code. All rights reserved.
 //
 
-import Log
+@testable import Log
 import OSLog
 
 final class OSWriterMock: IOSWriter {
     var invokedLog = false
     var invokedLogCount = 0
-    var invokedLogParameters: (message: StaticString, log: OSLog, type: OSLogType, args: CVarArg)?
-    var invokedLogParametersList = [(message: StaticString, log: OSLog, type: OSLogType, args: CVarArg)]()
+    var invokedLogParameters: (type: OSLogType, message: String)?
+    var invokedLogParametersList = [(type: OSLogType, message: String)]()
 
-    func log(_ message: StaticString, log: OSLog, type: OSLogType, _ args: CVarArg...) {
+    func log(type: OSLogType, _ message: String) {
         invokedLog = true
         invokedLogCount += 1
-        invokedLogParameters = (message, log, type, args)
-        invokedLogParametersList.append((message, log, type, args))
+        invokedLogParameters = (type, message)
+        invokedLogParametersList.append((type, message))
     }
 }

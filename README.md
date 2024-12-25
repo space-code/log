@@ -91,7 +91,7 @@ Once you have your Swift package set up, adding `log` as a dependency is as easy
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/space-code/log.git", .upToNextMajor(from: "1.0.0"))
+    .package(url: "https://github.com/space-code/log.git", .upToNextMajor(from: "1.2.0"))
 ]
 ```
 

@@ -1,6 +1,6 @@
 //
 // log
-// Copyright © 2024 Space Code. All rights reserved.
+// Copyright © 2023 Space Code. All rights reserved.
 //
 
 import Foundation
@@ -65,15 +65,15 @@ extension OSPrinter {
     private func sysLogPriority(_ logLevel: LogLevel) -> OSLogType {
         switch logLevel {
         case .debug:
-            return .debug
+            .debug
         case .info:
-            return .info
+            .info
         case .fault:
-            return .fault
+            .fault
         case .error:
-            return .error
+            .error
         default:
-            return .default
+            .default
         }
     }
 }

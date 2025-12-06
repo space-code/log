@@ -1,6 +1,6 @@
 //
 // log
-// Copyright © 2024 Space Code. All rights reserved.
+// Copyright © 2023 Space Code. All rights reserved.
 //
 
 import Foundation
@@ -20,13 +20,11 @@ final class OSWriter: IOSWriter {
     private var osLog: OSLog { OSLog(subsystem: subsystem, category: category) }
 
     /// An internal lazy property for initializing WriteStrategy instance.
-    private lazy var writerStrategy: IOSWriterStrategy = {
-        if #available(macOS 11.0, iOS 14.0, watchOS 7.0, tvOS 14.0, *) {
-            return os.Logger(osLog)
-        } else {
-            return LegacyOSLogger(osLog: osLog)
-        }
-    }()
+    private lazy var writerStrategy: IOSWriterStrategy = if #available(macOS 11.0, iOS 14.0, watchOS 7.0, tvOS 14.0, *) {
+        os.Logger(osLog)
+    } else {
+        LegacyOSLogger(osLog: osLog)
+    }
 
     // MARK: Initialization
 

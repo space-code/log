@@ -26,11 +26,11 @@ public struct PrefixLogFormatter: ILogFormatter {
     public func format(message: String, with logLevel: LogLevel) -> String {
         switch logLevel {
         case .fault:
-            return "🚨🚨🚨 [\(name)] => \(message)"
+            "🚨🚨🚨 [\(name)] => \(message)"
         case .error:
-            return "💣💥💣💥 [\(name)] => \(message)"
+            "💣💥💣💥 [\(name)] => \(message)"
         default:
-            return "[\(name)] => \(message)"
+            "[\(name)] => \(message)"
         }
     }
 }

@@ -13,6 +13,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ---
 ## [Unreleased]
 
+### Features
+- Add release workflow for GitHub Actions
+  - Implemented by [@ns-vasilev](https://github.com/ns-vasilev) in Pull Request [#26](https://github.com/space-code/log/pull/26).
+- Switch from Makefile to Mise
+  - Implemented by [@ns-vasilev](https://github.com/ns-vasilev) in Pull Request [#17](https://github.com/space-code/log/pull/17).
+
 ### Miscellaneous Tasks
 - Update workflow to run tests and build project
   - Contributed by [@ns-vasilev](https://github.com/ns-vasilev) in Pull Request [#20](https://github.com/space-code/log/pull/20).
@@ -30,7 +36,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Contributed by [@ns-vasilev](https://github.com/ns-vasilev) in Pull Request [#11](https://github.com/space-code/log/pull/11).
 
 ### New Contributors
-* @renovate[bot] made their first contribution in [#14](https://github.com/space-code/log/pull/14)
+* @renovate[bot] made their first contribution in [#21](https://github.com/space-code/log/pull/21)
 
 ## [1.2.0](https://github.com/space-code/log/releases/tag/1.2.0)
 

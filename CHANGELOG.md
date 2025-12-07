@@ -20,6 +20,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Implemented by [@ns-vasilev](https://github.com/ns-vasilev) in Pull Request [#17](https://github.com/space-code/log/pull/17).
 
 ### Miscellaneous Tasks
+- Add GitHub issue and PR templates
+  - Contributed by [@ns-vasilev](https://github.com/ns-vasilev) in Pull Request [#27](https://github.com/space-code/log/pull/27).
 - Update workflow to run tests and build project
   - Contributed by [@ns-vasilev](https://github.com/ns-vasilev) in Pull Request [#20](https://github.com/space-code/log/pull/20).
 - Automate code formatting and linting with git hooks

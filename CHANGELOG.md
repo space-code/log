@@ -41,6 +41,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Update config
   - Contributed by [@ns-vasilev](https://github.com/ns-vasilev) in Pull Request [#16](https://github.com/space-code/log/pull/16).
 
+### Refactor
+- Remove `nonisolated(unsafe)`
+  - Contributed by [@ns-vasilev](https://github.com/ns-vasilev) in Pull Request [#39](https://github.com/space-code/log/pull/39).
+
 ### Uncategorized Changes
 - Add renovate.json
   - Contributed by [@renovate[bot]](https://github.com/renovate[bot]) in Pull Request [#12](https://github.com/space-code/log/pull/12).

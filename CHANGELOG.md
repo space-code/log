@@ -13,6 +13,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ---
 ## [Unreleased]
 
+### Documentation
+- Update the documentation
+  - Documented by [@ns-vasilev](https://github.com/ns-vasilev) in Pull Request [#40](https://github.com/space-code/log/pull/40).
+
 ### Features
 - Add release workflow for GitHub Actions
   - Implemented by [@ns-vasilev](https://github.com/ns-vasilev) in Pull Request [#26](https://github.com/space-code/log/pull/26).

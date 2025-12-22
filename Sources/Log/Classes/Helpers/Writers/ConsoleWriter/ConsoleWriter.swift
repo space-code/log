@@ -7,15 +7,21 @@ import Foundation
 
 // MARK: - ConsoleWriter
 
-/// A class that conforms to the IConsoleWriter protocol and writes messages to the console output.
+/// A concrete implementation of the `IConsoleWriter` protocol that outputs messages to the standard console.
+///
+/// This class provides a simple wrapper around the `Swift.print(_:separator:terminator:)` function,
+/// typically used for local debugging or when specialized system logging is not required.
 final class ConsoleWriter: IConsoleWriter {
-    // MARK: Initialization
+    // MARK: - Initialization
 
-    /// Initializes a new ConsoleWriter instance.
+    /// Creates a new instance of `ConsoleWriter`.
     init() {}
 
-    // MARK: IConsoleWriter
+    // MARK: - IConsoleWriter
 
+    /// Writes the specified message to the standard output.
+    ///
+    /// - Parameter message: The string content to be displayed in the console.
     func print(_ message: String) {
         Swift.print(message)
     }

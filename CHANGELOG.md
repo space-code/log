@@ -20,6 +20,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Implemented by [@ns-vasilev](https://github.com/ns-vasilev) in Pull Request [#17](https://github.com/space-code/log/pull/17).
 
 ### Miscellaneous Tasks
+- Remove hooks
+  - Contributed by [@ns-vasilev](https://github.com/ns-vasilev) in Pull Request [#37](https://github.com/space-code/log/pull/37).
 - Remove the discrover typos step
   - Contributed by [@ns-vasilev](https://github.com/ns-vasilev) in Pull Request [#36](https://github.com/space-code/log/pull/36).
 - Delete Mintfile

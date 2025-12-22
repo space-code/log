@@ -8,24 +8,31 @@ import OSLog
 
 // MARK: - OSPrinter
 
-/// A class for logging messages using the OSLog system.
+/// A log printer that directs messages to Apple's Unified Logging System (OSLog).
+///
+/// `OSPrinter` integrates with the system-level logging facility, allowing logs to be
+/// viewed in the macOS Console app. It supports categorization via subsystems and categories,
+/// making it ideal for production debugging and performance analysis.
 public final class OSPrinter {
-    // MARK: Properties
+    // MARK: - Properties
 
-    /// An array of log formatters used to customize log message output.
+    /// A collection of formatters used to transform the log message before it is sent to the system.
+    ///
+    /// Use these to add prefixes, metadata, or to clean strings before they are persisted
+    /// by the operating system.
     public let formatters: [ILogFormatter]
 
-    /// An os writer.
+    /// The underlying writer that handles version-specific OS logging APIs.
     private let osWriter: IOSWriter
 
-    // MARK: Initialization
+    // MARK: - Initialization
 
-    /// Creates a new `OSPrinter` instance.
+    /// Creates a new `OSPrinter` instance configured with a specific subsystem and category.
     ///
     /// - Parameters:
-    ///   - subsystem: An optional subsystem for categorizing log messages.
-    ///   - category: An optional category for categorizing log messages.
-    ///   - formatters: An array of log formatters for customizing log messages.
+    ///   - subsystem: A string used to identify a specific app or large functional module (e.g., "com.app.network").
+    ///   - category: A string used to further distinguish logs within a subsystem (e.g., "Database").
+    ///   - formatters: An array of log formatters for customizing the final string output.
     public init(
         subsystem: String,
         category: String,
@@ -38,11 +45,14 @@ public final class OSPrinter {
         )
     }
 
-    /// Creates a new `OSPrinter` instance.
+    /// Creates a new `OSPrinter` instance using a pre-configured OS writer.
+    ///
+    /// This initializer is primarily intended for dependency injection during testing
+    /// or for advanced configurations where a specific `IOSWriter` implementation is required.
     ///
     /// - Parameters:
     ///   - formatters: An array of log formatters for customizing log messages.
-    ///   - osWriter: An os writer.
+    ///   - osWriter: An object conforming to `IOSWriter` that performs the actual system calls.
     init(formatters: [ILogFormatter], osWriter: IOSWriter) {
         self.formatters = formatters
         self.osWriter = osWriter
@@ -52,6 +62,14 @@ public final class OSPrinter {
 // MARK: IStyleLogStrategy
 
 extension OSPrinter: IStyleLogStrategy {
+    /// Formats and dispatches a log message to the OSLog system.
+    ///
+    /// The method first processes the message through the formatter chain, maps the
+    /// internal `LogLevel` to a native `OSLogType`, and then triggers the system log.
+    ///
+    /// - Parameters:
+    ///   - message: The raw string content to be logged.
+    ///   - logLevel: The severity level used to determine the system log priority.
     public func log(_ message: String, logLevel: LogLevel) {
         let message = formatMessage(message, logLevel: logLevel)
         let type = sysLogPriority(logLevel)
@@ -59,9 +77,13 @@ extension OSPrinter: IStyleLogStrategy {
     }
 }
 
-// MARK: - Extension
+// MARK: - Private Mapping
 
 extension OSPrinter {
+    /// Maps the internal `LogLevel` flags to the native Apple `OSLogType` severities.
+    ///
+    /// - Parameter logLevel: The custom log level used within the application.
+    /// - Returns: The corresponding `OSLogType` that the system uses for filtering and persistence.
     private func sysLogPriority(_ logLevel: LogLevel) -> OSLogType {
         switch logLevel {
         case .debug:

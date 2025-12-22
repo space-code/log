@@ -5,10 +5,14 @@
 
 import Foundation
 
-/// A protocol for writing messages to the console.
+/// A protocol defining an interface for writing simple text messages to a console or standard output.
+///
+/// Implementations of `IConsoleWriter` are typically used for basic debugging or
+/// environment-specific logging where the overhead of Apple's Unified Logging System
+/// is not necessary.
 protocol IConsoleWriter {
-    /// Prints a message to the console output.
+    /// Outputs a message string to the console.
     ///
-    /// - Parameter message: The message to be printed as a String.
+    /// - Parameter message: The string content to be written to the output stream.
     func print(_ message: String)
 }

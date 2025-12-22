@@ -7,13 +7,16 @@ import os
 
 // MARK: - IOSWriterStrategy
 
-/// Protocol defining the contract for a logger strategy that writes logs to the iOS system logs using OSLog.
+/// A protocol that abstracts the specific logging mechanism used to write to Apple's system logs.
+///
+/// This serves as the "Strategy" in a Strategy Pattern, allowing the logger to swap between
+/// the modern `os.Logger` API and the legacy `os_log` function depending on platform availability.
 protocol IOSWriterStrategy {
-    /// Writes a log message to the iOS system logs with the specified log type.
+    /// Writes a log message to the system logging facility using the underlying strategy.
     ///
     /// - Parameters:
-    ///   - type: The type of the log message (debug, info, error, etc.).
-    ///   - message: The message to be logged.
+    ///   - type: The `OSLogType` defining the severity of the log (e.g., `.default`, `.error`).
+    ///   - message: The string content to be recorded.
     func log(type: OSLogType, _ message: String)
 }
 
@@ -21,7 +24,14 @@ protocol IOSWriterStrategy {
 
 @available(macOS 11.0, iOS 14.0, watchOS 7.0, tvOS 14.0, *)
 extension os.Logger: IOSWriterStrategy {
+    /// Bridges the `IOSWriterStrategy` to the modern `os.Logger` API.
+    ///
+    /// - Parameters:
+    ///   - type: The `OSLogType` which maps directly to the logger's `OSLogLogLevel`.
+    ///   - message: The message string, passed using a string interpolation wrapper.
     func log(type: OSLogType, _ message: String) {
+        // We use string interpolation here because os.Logger expects a OSLogMessage
+        // which is created via ExpressibleByStringInterpolation.
         log(level: type, "\(message)")
     }
 }

@@ -5,15 +5,27 @@
 
 import Foundation
 
-/// A protocol that defines the behavior of a logging printer strategy
+/// A protocol that defines a strategy for processing and delivering log messages.
+///
+/// `IPrinterStrategy` combines the responsibilities of message formatting and
+/// final output delivery. Types conforming to this protocol use an array of
+/// `ILogFormatter` objects to transform raw messages before writing them
+/// to their respective destinations (e.g., Console, System Logs, or Files).
 public protocol IPrinterStrategy {
-    /// An array of log formatters to customize log message output.
+    /// A collection of formatters used to process and style the log message content.
+    ///
+    /// The formatters are typically applied in sequence to add metadata such as
+    /// timestamps, emojis, or thread information.
     var formatters: [ILogFormatter] { get }
 
-    /// Logs a message with a specified log level.
+    /// Processes and dispatches a log message.
+    ///
+    /// Implementation should first pass the raw message through the `formatters`
+    /// chain and then transmit the resulting string to the specific output target.
     ///
     /// - Parameters:
-    ///   - message: A `String` value that contains the message to dispatch.
-    ///   - logLevel: A `LogLevel` value that contains the logging level.
+    ///   - message: The raw string content provided by the logger.
+    ///   - logLevel: The severity level used for both formatting decisions and
+    ///     target-specific severity mapping.
     func log(_ message: String, logLevel: LogLevel)
 }

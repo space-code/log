@@ -20,6 +20,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Implemented by [@ns-vasilev](https://github.com/ns-vasilev) in Pull Request [#17](https://github.com/space-code/log/pull/17).
 
 ### Miscellaneous Tasks
+- Remove the discrover typos step
+  - Contributed by [@ns-vasilev](https://github.com/ns-vasilev) in Pull Request [#36](https://github.com/space-code/log/pull/36).
 - Delete Mintfile
   - Contributed by [@ns-vasilev](https://github.com/ns-vasilev) in Pull Request [#34](https://github.com/space-code/log/pull/34).
 - Add codeowners
@@ -44,7 +46,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Contributed by [@ns-vasilev](https://github.com/ns-vasilev) in Pull Request [#11](https://github.com/space-code/log/pull/11).
 
 ### New Contributors
-* @renovate[bot] made their first contribution in [#35](https://github.com/space-code/log/pull/35)
+* @renovate[bot] made their first contribution in 
 
 ## [1.2.0](https://github.com/space-code/log/releases/tag/1.2.0)
 

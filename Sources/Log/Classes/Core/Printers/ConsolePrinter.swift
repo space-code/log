@@ -27,7 +27,7 @@ public final class ConsolePrinter {
     /// Creates a new `ConsolePrinter` instance with a default console writer.
     ///
     /// - Parameter formatters: An array of log formatters used to process and style the log messages.
-    public init(formatters: [ILogFormatter]) {
+    public init(formatters: [ILogFormatter] = []) {
         self.formatters = formatters
         consoleWriter = ConsoleWriter()
     }
@@ -40,7 +40,7 @@ public final class ConsolePrinter {
     /// - Parameters:
     ///   - formatters: An array of log formatters for customizing log messages.
     ///   - consoleWriter: An object conforming to `IConsoleWriter` to handle message output.
-    init(formatters: [ILogFormatter], consoleWriter: IConsoleWriter) {
+    init(formatters: [ILogFormatter] = [], consoleWriter: IConsoleWriter = ConsoleWriter()) {
         self.formatters = formatters
         self.consoleWriter = consoleWriter
     }

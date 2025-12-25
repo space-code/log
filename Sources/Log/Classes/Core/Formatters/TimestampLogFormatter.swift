@@ -31,7 +31,7 @@ open class TimestampLogFormatter: ILogFormatter {
     /// Initializes a new `TimestampLogFormatter` with the specified date format.
     ///
     /// - Parameter dateFormat: A string representing the desired date and time pattern.
-    public init(dateFormat: String) {
+    public init(dateFormat: String = "HH:mm:ss") {
         self.dateFormat = dateFormat
     }
 

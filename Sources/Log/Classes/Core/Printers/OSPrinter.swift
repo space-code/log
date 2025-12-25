@@ -34,16 +34,16 @@ public final class OSPrinter {
     ///   - category: A string used to further distinguish logs within a subsystem (e.g., "Database").
     ///   - formatters: An array of log formatters for customizing the final string output.
     public init(
-        subsystem: String,
-        category: String,
-        formatters: [ILogFormatter]
-    ) {
-        self.formatters = formatters
-        osWriter = OSWriter(
-            subsystem: subsystem,
-            category: category
-        )
-    }
+            subsystem: String = Bundle.main.bundleIdentifier ?? "com.app.logger",
+            category: String = "General",
+            formatters: [ILogFormatter] = []
+        ) {
+            self.formatters = formatters
+            self.osWriter = OSWriter(
+                subsystem: subsystem,
+                category: category
+            )
+        }
 
     /// Creates a new `OSPrinter` instance using a pre-configured OS writer.
     ///
@@ -53,10 +53,16 @@ public final class OSPrinter {
     /// - Parameters:
     ///   - formatters: An array of log formatters for customizing log messages.
     ///   - osWriter: An object conforming to `IOSWriter` that performs the actual system calls.
-    init(formatters: [ILogFormatter], osWriter: IOSWriter) {
-        self.formatters = formatters
-        self.osWriter = osWriter
-    }
+    init(
+            formatters: [ILogFormatter] = [],
+            osWriter: IOSWriter = OSWriter(
+                subsystem: Bundle.main.bundleIdentifier ?? "com.app.logger",
+                category: "General"
+            )
+        ) {
+            self.formatters = formatters
+            self.osWriter = osWriter
+        }
 }
 
 // MARK: IStyleLogStrategy

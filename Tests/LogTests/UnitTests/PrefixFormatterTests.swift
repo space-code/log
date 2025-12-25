@@ -32,7 +32,7 @@ final class PrefixFormatterTests: XCTestCase {
         let message = sut.format(message: .message, with: .fault)
 
         // then
-        XCTAssertEqual(message, "🚨🚨🚨 [name] => message")
+        XCTAssertEqual(message, "⛔️ [name] => message")
     }
 
     func test_thatPrefixFormatterFormatsMessage_whenLogLevelIsError() {
@@ -40,7 +40,7 @@ final class PrefixFormatterTests: XCTestCase {
         let message = sut.format(message: .message, with: .error)
 
         // then
-        XCTAssertEqual(message, "💣💥💣💥 [name] => message")
+        XCTAssertEqual(message, "⚠️ [name] => message")
     }
 
     func test_thatPrefixFormatterFormatsMessage_whenLogLevelIsDebug() {
@@ -48,7 +48,7 @@ final class PrefixFormatterTests: XCTestCase {
         let message = sut.format(message: .message, with: .debug)
 
         // then
-        XCTAssertEqual(message, "[name] => message")
+        XCTAssertEqual(message, "🔹 [name] => message")
     }
 
     func test_thatPrefixFormatterFormatsMessage_whenLogLevelIsInfo() {
@@ -56,7 +56,7 @@ final class PrefixFormatterTests: XCTestCase {
         let message = sut.format(message: .message, with: .info)
 
         // then
-        XCTAssertEqual(message, "[name] => message")
+        XCTAssertEqual(message, "ℹ️ [name] => message")
     }
 
     func test_thatPrefixFormatterFormatsMessage_whenLogLevelIsAll() {

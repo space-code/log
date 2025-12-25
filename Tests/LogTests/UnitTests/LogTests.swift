@@ -124,7 +124,7 @@ final class LogTests: XCTestCase {
         let sut = prepareSut()
 
         // when
-        sut.logLevel = .info
+        sut.updateLogLevel { _ in .info }
         sut.debug(message: .message)
         sut.info(message: .message)
 

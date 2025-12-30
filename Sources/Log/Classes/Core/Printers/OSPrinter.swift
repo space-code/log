@@ -34,9 +34,9 @@ public final class OSPrinter {
     ///   - category: A string used to further distinguish logs within a subsystem (e.g., "Database").
     ///   - formatters: An array of log formatters for customizing the final string output.
     public init(
-        subsystem: String,
-        category: String,
-        formatters: [ILogFormatter]
+        subsystem: String = Bundle.main.bundleIdentifier ?? "com.app.logger",
+        category: String = "General",
+        formatters: [ILogFormatter] = []
     ) {
         self.formatters = formatters
         osWriter = OSWriter(
@@ -53,7 +53,13 @@ public final class OSPrinter {
     /// - Parameters:
     ///   - formatters: An array of log formatters for customizing log messages.
     ///   - osWriter: An object conforming to `IOSWriter` that performs the actual system calls.
-    init(formatters: [ILogFormatter], osWriter: IOSWriter) {
+    init(
+        formatters: [ILogFormatter] = [],
+        osWriter: IOSWriter = OSWriter(
+            subsystem: Bundle.main.bundleIdentifier ?? "com.app.logger",
+            category: "General"
+        )
+    ) {
         self.formatters = formatters
         self.osWriter = osWriter
     }

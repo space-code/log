@@ -44,8 +44,8 @@ final class LogIntegrationTests: XCTestCase {
 
     // MARK: Tests
 
-    // The test just checks that the methods don't cause a crash
-    // when printing a message to different outputs.
+    /// The test just checks that the methods don't cause a crash
+    /// when printing a message to different outputs.
     func test_logDoesNotThrowUnexpectedBehavior_whenLogMessages() {
         // 1. Print an info message
         sut.info(message: .message)

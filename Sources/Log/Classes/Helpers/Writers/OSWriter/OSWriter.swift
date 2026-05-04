@@ -22,7 +22,9 @@ final class OSWriter: IOSWriter {
     private let category: String
 
     /// An internal property used to generate an `OSLog` configuration for both legacy and modern logging APIs.
-    private var osLog: OSLog { OSLog(subsystem: subsystem, category: category) }
+    private var osLog: OSLog {
+        OSLog(subsystem: subsystem, category: category)
+    }
 
     /// A strategy-based writer that selects between the modern `os.Logger` (iOS 14+)
     /// or a legacy `os_log` wrapper for older systems.

@@ -12,7 +12,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `1.0.x` Releases - [1.0.0](#100)
 
 ---
+## [Unreleased]
 
+### Miscellaneous Tasks
+- Update `ci.yml`
+  - Contributed by [@ns-vasilev](https://github.com/ns-vasilev) in Pull Request [#75](https://github.com/space-code/log/pull/75).
 
 ## [1.3.0](https://github.com/space-code/log/releases/tag/1.3.0)
 
@@ -101,6 +105,7 @@ Released on 2023-10-18. All issues associated with this milestone can be found u
 - Release `1.0.0`
   - Contributed by [@ns-vasilev](https://github.com/ns-vasilev) in Pull Request [#1](https://github.com/space-code/log/pull/1).
 
+[unreleased]: https://github.com/space-code/log/compare/1.3.0..HEAD
 [1.3.0]: https://github.com/space-code/log/compare/1.2.0..1.3.0
 [1.2.0]: https://github.com/space-code/log/compare/1.1.0..1.2.0
 [1.1.0]: https://github.com/space-code/log/compare/1.0.0..1.1.0
